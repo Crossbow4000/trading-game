@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 import { useCollectionData, useDocumentData } from 'react-firebase-hooks/firestore'
 
@@ -21,7 +21,13 @@ export default function HomePage(props) {
   const [userDocument] = useDocumentData(props.usersCollection.doc(user.uid))
 
   return (
-    page == "inventory" ? <Inventory auth={auth} user={user} items={items} userDocument={userDocument}/> : <Inventory auth={auth} user={user} items={items} userDocument={userDocument}/>
+    (page == "inventory")? 
+      (<Inventory auth={auth} user={user} items={items} userDocument={userDocument}/>): 
+      (
+        (page == "crafting")?
+          (<Inventory auth={auth} user={user} items={items} userDocument={userDocument}/>):
+          (<Navigate to={"/inventory"}/>)
+      )
   )
 }
 
