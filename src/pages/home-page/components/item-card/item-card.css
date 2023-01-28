@@ -1,0 +1,68 @@
+.item-card {
+  height: 200px;
+  width: 200px;
+
+  position: relative;
+
+  border-radius: 10px;
+
+  margin: 30px;
+
+  background-color: var(--bg-secondary);
+
+  align-content: center;
+  justify-content: center;
+}
+
+.item-card-title {
+  text-align: center;
+  font-size: 25px;
+
+  translate: 0 5px;
+}
+
+.item-card-rarity {
+  font-size: 10px;
+  color: black;
+
+  border-radius: 13px;
+
+  min-height: 13px;
+  min-width: 5px;
+
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  padding-inline: 7px;
+  padding-block: 3px;
+}
+.item-card-rarity-uncommon {
+  background-color: rgb(127, 127, 127);
+}
+
+.item-card-image {
+  margin: auto;
+  
+  height: 60px;
+  width: 60px;
+
+  padding: 10px;
+
+  background-color: var(--bg-primary);
+  border-radius: 50%;
+
+  translate: 0 7px;
+}
+
+.item-card-quantity {
+  margin: auto;
+
+  padding-inline: 10px;
+  padding-block: 5px;
+
+  translate: 0 15px;
+
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+}

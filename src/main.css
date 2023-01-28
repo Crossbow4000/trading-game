@@ -1,0 +1,35 @@
+* {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: var(--fc-primary);
+
+  background: none;
+
+  border: none;
+  outline: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --fc-primary:   rgb(230, 230, 230);
+  --fc-secondary: rgb(150, 150, 150);
+
+  --bg-primary:   rgb(20, 20, 20);
+  --bg-secondary: rgb(30, 30, 30);
+  --bg-dark:      rgb(0, 0, 0);
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+}

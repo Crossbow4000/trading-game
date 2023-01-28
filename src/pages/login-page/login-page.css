@@ -1,0 +1,33 @@
+.login-form {
+  height: 100vh;
+  
+  flex-direction: column;
+  gap: 10px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.login-input, .login-button {
+  width: 300px;
+
+  font-size: 14px;
+  color: var(--fc-primary);
+
+  background-color: var(--bg-secondary);
+
+  padding-inline: 13px;
+  padding-block: 10px;
+
+  border-radius: 6px;
+}
+.login-input::placeholder {
+  color: var(--fc-secondary);
+  opacity: 1;
+}
+
+.login-button {
+  width: 326px;
+
+  cursor: pointer;
+}
