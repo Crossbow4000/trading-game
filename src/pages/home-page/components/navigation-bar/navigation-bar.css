@@ -1,0 +1,57 @@
+.navigation-bar {
+
+  background-color: var(--bg-dark);
+
+  padding: 20px;
+
+  gap: 20px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation-button {
+  align-content: center;
+  justify-items: center;
+
+  gap: 5px;
+}
+
+.selected, .not-selected {
+  padding-inline: 20px;
+  padding-block: 10px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  transition: 150ms ease-in-out;
+}
+.selected:hover, .not-selected:hover {
+  cursor: pointer;
+
+  opacity: 0.9;
+}
+
+.selected img, .not-selected img {
+  padding: 5px;
+
+  border-radius: 50%;
+
+  background-color: var(--bg-primary);
+}
+
+.selected {
+  background-color: var(--bg-secondary);
+}
+
+.not-selected {
+  background-color: var(--bg-primary);
+}
+
+.button-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
