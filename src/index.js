@@ -17,13 +17,7 @@ function App() {
   
   return (
     <StrictMode>
-      <BrowserRouter>   
-        <Routes>     
-          <Route path="/login" element={<LoginPage auth={auth}/>}/>
-          <Route path="/inventory" element={<HomePage page={"inventory"} auth={auth} user={user} itemsCollection={itemsCollection} usersCollection={usersCollection}/>}/>
-          <Route path="*" element={!user ? <Navigate to={"/login"}/> : <Navigate to={"/inventory"}/>}/>
-        </Routes> 
-      </BrowserRouter>
+      {!user ? <LoginPage auth={auth}/> : <HomePage page={"inventory"} auth={auth} user={user} itemsCollection={itemsCollection} usersCollection={usersCollection}/>}
     </StrictMode>
   )
 }

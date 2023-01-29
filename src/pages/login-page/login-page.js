@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 
+import { Navigate } from 'react-router-dom'
+
 import '../../main.css';
 import './login-page.css'
 
@@ -18,6 +20,7 @@ export default function App(props) {
     .then(userCredentials => {
       setEmail('')
       setPassword('')
+      return <Navigate to={"/inventory"}/>
     })
     .catch(error => {
       alert('Email or password was incorrect')
