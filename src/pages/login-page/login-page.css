@@ -31,3 +31,12 @@
 
   cursor: pointer;
 }
+
+.sign-up-button {
+  padding-block: 5px;
+
+  cursor: pointer;
+}
+.sign-up-button:hover {
+  color: var(--fc-secondary);
+}

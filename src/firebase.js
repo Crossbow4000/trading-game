@@ -20,5 +20,6 @@ const firestore = firebase.firestore()
 
 const usersCollection = firestore.collection('users')
 const itemsCollection = firestore.collection('items')
+const recipesCollection = firestore.collection('recipes')
 
-export { app, auth, firestore, usersCollection, itemsCollection }
+export { app, auth, firestore, usersCollection, itemsCollection, recipesCollection }

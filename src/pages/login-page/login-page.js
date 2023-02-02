@@ -30,10 +30,15 @@ export default function App(props) {
   }
 
   return (
-    <form className={"flex | login-form"} onSubmit={event => SubmitLoginForm(event)}>
-      <input className={"login-input"} type={"text"} placeholder={"email"} value={email} onChange={newValue => setEmail(newValue.target.value)}></input>
-      <input className={"login-input"} type={"password"} placeholder={"password"} value={password} onChange={newValue => setPassword(newValue.target.value)}></input>
-      <button className={"login-button"} type={"submit"}>Login</button>
-    </form>
+    state == 'login' ? 
+      (<form className={"flex | login-form"} onSubmit={event => SubmitLoginForm(event)}>
+        <input className={"login-input"} type={"text"} placeholder={"email"} value={email} onChange={newValue => setEmail(newValue.target.value)}></input>
+        <input className={"login-input"} type={"password"} placeholder={"password"} value={password} onChange={newValue => setPassword(newValue.target.value)}></input>
+        <button className={"login-button"} type={"submit"}>Login</button>
+        <button className={"sign-up-button"} type={"button"} onClick={event => {event.preventDefault(); setState('sign-up')}}>Sign-Up</button>
+      </form>):
+      (<div>
+
+      </div>)
   );
 }
