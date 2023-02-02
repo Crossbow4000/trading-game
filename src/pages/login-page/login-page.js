@@ -11,6 +11,7 @@ import './login-page.css'
 export default function App(props) {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  const [username, setUsername] = useState()
 
   const [state, setState] = useState('login')
 
@@ -26,19 +27,32 @@ export default function App(props) {
     .catch(error => {
       alert('Email or password was incorrect')
     })
-    
+  }
+
+  const SubmitSignUpForm = (event) => {
+    event.preventDefault()
+    auth.createUserWithEmailAndPassword(email, password)
+    .then(userCredentials => {
+      console.log(userCredentials)
+    })
+    .catch(error => {
+      alert('Please make sure that you have correctly entered your credentials')
+    })
   }
 
   return (
     state == 'login' ? 
       (<form className={"flex | login-form"} onSubmit={event => SubmitLoginForm(event)}>
-        <input className={"login-input"} type={"text"} placeholder={"email"} value={email} onChange={newValue => setEmail(newValue.target.value)}></input>
+        <input className={"login-input"} type={"email"} placeholder={"email"} value={email} onChange={newValue => setEmail(newValue.target.value)}></input>
         <input className={"login-input"} type={"password"} placeholder={"password"} value={password} onChange={newValue => setPassword(newValue.target.value)}></input>
         <button className={"login-button"} type={"submit"}>Login</button>
-        <button className={"sign-up-button"} type={"button"} onClick={event => {event.preventDefault(); setState('sign-up')}}>Sign-Up</button>
+        <button className={"sign-up-button"} type={"button"} onClick={event => {setState('sign-up')}}>Sign-Up</button>
       </form>):
-      (<div>
-
-      </div>)
+      (<form className={"flex | login-form"} onSubmit={event => SubmitSignUpForm(event)}>
+        <input className={"login-input"} type={"email"} placeholder={"email"} value={email} onChange={newValue => setEmail(newValue.target.value)}></input>
+        <input className={"login-input"} type={"password"} placeholder={"password"} value={password} onChange={newValue => setPassword(newValue.target.value)}></input>
+        <button className={"login-button"} type={"submit"}>Sign Up</button>
+        <button className={"sign-up-button"} type={"button"} onClick={event => {setState('login')}}>Login</button>
+      </form>)
   );
 }
