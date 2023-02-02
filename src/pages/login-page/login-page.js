@@ -12,6 +12,8 @@ export default function App(props) {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
 
+  const [state, setState] = useState('login')
+
   const auth = props.auth
 
   const SubmitLoginForm = (event) => {
@@ -20,7 +22,6 @@ export default function App(props) {
     .then(userCredentials => {
       setEmail('')
       setPassword('')
-      return <Navigate to={"/inventory"}/>
     })
     .catch(error => {
       alert('Email or password was incorrect')
