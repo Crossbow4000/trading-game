@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react';
+import React, { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -14,10 +14,12 @@ const root = createRoot(rootElement);
 
 function App() {
   const [user] = useAuthState(auth)
+
+  const [isSignedUp, setSignedUp] = useState(user ? true : false)
   
   return (
     <StrictMode>
-      {!user ? <LoginPage auth={auth}/> : <HomePage page={"inventory"} auth={auth} user={user} itemsCollection={itemsCollection} usersCollection={usersCollection}/>}
+      {!user && !isSignedUp ? <LoginPage auth={auth}/> : <HomePage page={"inventory"} auth={auth} user={user} itemsCollection={itemsCollection} usersCollection={usersCollection} setSignedUp={setSignedUp}/>}
     </StrictMode>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-import { Navigate } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';
 
 import '../../main.css';
 import './login-page.css'
@@ -33,10 +33,23 @@ export default function App(props) {
     event.preventDefault()
     auth.createUserWithEmailAndPassword(email, password)
     .then(userCredentials => {
-      console.log(userCredentials)
+      props.usersCollection().doc(props.user.uid).set({
+        "uid": String(props.user.uid),
+        "wallet": 0,
+        "inventory": [0, 1, 1],
+        "key": String(uuidv4()),
+        "username": String(username)
+      })
+      .then(response => {
+        props.setSignedUp(true)
+      })
+      .catch(error => {
+        console.log(error)
+      })
     })
     .catch(error => {
-      alert('Please make sure that you have correctly entered your credentials')
+      console.log(error)
+      alert('Please make sure that you have correctly entered all of the fields')
     })
   }
 
@@ -51,6 +64,7 @@ export default function App(props) {
       (<form className={"flex | login-form"} onSubmit={event => SubmitSignUpForm(event)}>
         <input className={"login-input"} type={"email"} placeholder={"email"} value={email} onChange={newValue => setEmail(newValue.target.value)}></input>
         <input className={"login-input"} type={"password"} placeholder={"password"} value={password} onChange={newValue => setPassword(newValue.target.value)}></input>
+        <input className={"login-input"} type={"text"} placeholder={"username"} value={username} onChange={newValue => setUsername(newValue.target.value)}></input>
         <button className={"login-button"} type={"submit"}>Sign Up</button>
         <button className={"sign-up-button"} type={"button"} onClick={event => {setState('login')}}>Login</button>
       </form>)
