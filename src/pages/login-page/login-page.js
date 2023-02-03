@@ -35,7 +35,7 @@ export default function App(props) {
     .then(userCredentials => {
       console.log(userCredentials)
       const data = {
-        uid: String(props.user.uid),
+        uid: String(userCredentials.uid),
         wallet: 0,
         inventory: [
           0, 
@@ -47,7 +47,7 @@ export default function App(props) {
       }
       console.log(data)
       .catch(error => console.log(error))
-      props.usersCollection().doc(String(props.user.uid)).set(data)
+      props.usersCollection().doc(String(userCredentials.uid)).set(data)
       .then(response => {
         props.setSignedUp(true)
       })
