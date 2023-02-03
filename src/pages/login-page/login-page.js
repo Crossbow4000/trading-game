@@ -33,13 +33,21 @@ export default function App(props) {
     event.preventDefault()
     auth.createUserWithEmailAndPassword(email, password)
     .then(userCredentials => {
-      props.usersCollection().doc(props.user.uid).set({
-        "uid": String(props.user.uid),
-        "wallet": 0,
-        "inventory": [0, 1, 1],
-        "key": String(uuidv4()),
-        "username": String(username)
-      })
+      console.log(userCredentials)
+      const data = {
+        uid: String(props.user.uid),
+        wallet: 0,
+        inventory: [
+          0, 
+          1, 
+          1
+        ],
+        key: String(uuidv4()),
+        username: String(username)
+      }
+      console.log(data)
+      .catch(error => console.log(error))
+      props.usersCollection().doc(String(props.user.uid)).set(data)
       .then(response => {
         props.setSignedUp(true)
       })
