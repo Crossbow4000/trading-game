@@ -30,35 +30,7 @@ export default function App(props) {
   }
 
   const SubmitSignUpForm = (event) => {
-    event.preventDefault()
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(userCredentials => {
-      console.log(userCredentials)
-      const data = {
-        uid: String(userCredentials.uid),
-        wallet: 0,
-        inventory: [
-          0, 
-          1, 
-          1
-        ],
-        key: String(uuidv4()),
-        username: String(username)
-      }
-      console.log(data)
-      .catch(error => console.log(error))
-      props.usersCollection().doc(String(userCredentials.uid)).set(data)
-      .then(response => {
-        props.setSignedUp(true)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    })
-    .catch(error => {
-      console.log(error)
-      alert('Please make sure that you have correctly entered all of the fields')
-    })
+    
   }
 
   return (
