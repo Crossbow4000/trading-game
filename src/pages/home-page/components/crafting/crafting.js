@@ -6,7 +6,11 @@ import './crafting.css'
 
 
 export default function Crafting() {
-
+  return (
+    <div className={"flex"}>
+      {props.items?.map()}
+    </div>
+  )
 }
 
 function CraftingCard(props) {
