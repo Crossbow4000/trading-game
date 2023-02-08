@@ -32,9 +32,8 @@ export default function App(props) {
   const SubmitSignUpForm = (event) => {
     event.preventDefault()
     fetch(`https://trading-game-api.vercel.app/?action=CREATEUSER&email=${email}&password=${password}&username=${username}`)
-    .then(response => response.json())
-    .then(json => {
-      console.log(json)
+    .then((response) => response.json())
+    .then((json) => {
       if(json.status == 200) {
         setState('sign-up')
       } else {
