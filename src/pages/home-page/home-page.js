@@ -22,6 +22,7 @@ export default function HomePage(props) {
 
   const [items] = useCollectionData(props.itemsCollection.orderBy('id', 'asc'))
   const [userDocument] = useDocumentData(props.usersCollection.doc(user.uid))
+  const [recipes] = useCollectionData(props.recipesCollection)
   
   return (
     <div>
