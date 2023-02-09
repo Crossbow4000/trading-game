@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { app, auth, firestore, usersCollection, itemsCollection } from './firebase.js'
+import { app, auth, firestore, usersCollection, itemsCollection, recipesCollection } from './firebase.js'
 
 import LoginPage from './pages/login-page/login-page.js';
 import HomePage from './pages/home-page/home-page.js'
@@ -19,7 +19,7 @@ function App() {
   
   return (
     <StrictMode>
-      {!user && !isSignedUp ? <LoginPage auth={auth}/> : <HomePage page={"inventory"} auth={auth} user={user} itemsCollection={itemsCollection} usersCollection={usersCollection} setSignedUp={setSignedUp}/>}
+      {!user && !isSignedUp ? <LoginPage auth={auth}/> : <HomePage page={"inventory"} auth={auth} user={user} itemsCollection={itemsCollection} usersCollection={usersCollection} recipiesCollectoin={recipesCollection} setSignedUp={setSignedUp}/>}
     </StrictMode>
   )
 }

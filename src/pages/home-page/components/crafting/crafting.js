@@ -5,10 +5,27 @@ import './crafting.css'
 
 
 
-export default function Crafting() {
+export default function Crafting(props) {
+  let craftableRecipies = []
+
+  props.recipes?.forEach(recipe => {
+    let canUseRecipe = true
+    console.log(recipe)
+    recipe.recipe.forEach((itemInRecipe, i) => {
+      if(itemInRecipe < 0) {
+        if(props.userDocument.inventory[i] < Math.abs(itemInRecipe)) {
+          canUseRecipe = false
+        }
+      }
+    })
+    if(canUseRecipe) {
+      craftableRecipies.push(recipe.id)
+    }
+  })
+
   return (
     <div className={"flex"}>
-      {props.items?.map()}
+      {console.log(craftableRecipies)}
     </div>
   )
 }

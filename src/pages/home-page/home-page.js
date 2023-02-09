@@ -22,11 +22,12 @@ export default function HomePage(props) {
 
   const [items] = useCollectionData(props.itemsCollection.orderBy('id', 'asc'))
   const [userDocument] = useDocumentData(props.usersCollection.doc(user.uid))
+  const [recipes] = useCollectionData(props.recipes)
 
   return (
     <div>
       <NavigationBar page={page} setPage={setPage}/>
-      <Body page={page} auth={auth} user={user} items={items} userDocument={userDocument}/>
+      <Body page={page} auth={auth} user={user} items={items} userDocument={userDocument} recipes={recipes}/>
     </div>
   )
 }
@@ -37,7 +38,7 @@ function Body(props) {
     case 'inventory':
       return <Inventory auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument}/>
     case 'crafting':
-      return <Crafting  auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument}/>
+      return <Crafting  auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument} recipes={props.recipes} />
     default:
       return <Inventory auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument}/>
   }
