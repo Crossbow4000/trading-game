@@ -1,0 +1,13 @@
+.crafting-card {
+  height: 200px;
+  width: 100%;
+
+  border-radius: 10px;
+
+  margin: 30px;
+
+  background-color: var(--bg-secondary);
+
+  align-content: center;
+  justify-content: center;
+}

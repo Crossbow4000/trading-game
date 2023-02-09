@@ -27,7 +27,7 @@ export default function HomePage(props) {
   return (
     <div>
       <NavigationBar page={page} setPage={setPage}/>
-      <Body page={page} auth={auth} user={user} items={items} userDocument={userDocument} recipes={props.recipesCollection}/>
+      <Body page={page} auth={auth} user={user} items={items} userDocument={userDocument} recipes={recipes}/>
     </div>
   )
 }
@@ -38,7 +38,7 @@ function Body(props) {
     case 'inventory':
       return <Inventory auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument}/>
     case 'crafting':
-      return <Crafting  auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument} recipes={props.recipesCollection} />
+      return <Crafting  auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument} recipes={props.recipes} />
     default:
       return <Inventory auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument}/>
   }

@@ -10,11 +10,8 @@ import { useCollectionData } from 'react-firebase-hooks/firestore'
 export default function Crafting(props) {
   let craftableRecipies = []
 
-  const [recipes] = useCollectionData(props.recipesCollection)
-
-  recipes?.forEach(recipe => {
+  props.recipes?.forEach(recipe => {
     let canUseRecipe = true
-    console.log(recipe)
     recipe.recipe.forEach((itemInRecipe, i) => {
       if(itemInRecipe < 0) {
         if(props.userDocument.inventory[i] < Math.abs(itemInRecipe)) {
@@ -23,24 +20,42 @@ export default function Crafting(props) {
       }
     })
     if(canUseRecipe) {
-      craftableRecipies.push(recipe.id)
+      craftableRecipies.push(recipe.recipe)
     }
+  })
+
+  let recipes = craftableRecipies.map(recipe => {
+    return({
+      ingredients: recipe.map(item => { if(item < 0){return Math.abs(item)} }),
+      outputs: recipe.map(item => { if(item > 0){return item} })
+    })
   })
 
   return (
     <div className={"flex"}>
-      {console.log(craftableRecipies)}
+      {recipes.map(recipe => {
+        return(
+          <CraftingCard 
+            ingredients={recipe.ingredients}
+            outputs={recipe.outputs}
+            items={props.items}
+          />
+      )})}
     </div>
   )
 }
 
 function CraftingCard(props) {
+  console.log(props.name, props.image)
   return(
-    <div className={"grid | item-card"}>
-      <h1 className={"item-card-title"}>{props.name}</h1>
-      <h2 className={`item-card-rarity item-card-rarity-${props.rarity}`}>{props.rarity}</h2>
-      <img className={"item-card-image"} src={props.image}/>
-      <p className={"item-card-quantity"}>{props.quantity}</p>
+    <div className={"grid | crafting-card"}>
+      {props.ingredients.map((ingredient, i) => {
+        if(ingredient) {
+          return(
+            <h1>{props.items[i].name}</h1>
+          )
+        }
+      })}
     </div>
   )
 }

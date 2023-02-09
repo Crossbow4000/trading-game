@@ -31,7 +31,7 @@
 .selected:hover, .not-selected:hover {
   cursor: pointer;
 
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 .selected img, .not-selected img {
