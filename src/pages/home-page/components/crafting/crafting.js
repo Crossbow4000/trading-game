@@ -20,14 +20,15 @@ export default function Crafting(props) {
       }
     })
     if(canUseRecipe) {
-      craftableRecipies.push(recipe.recipe)
+      craftableRecipies.push(recipe)
     }
   })
 
   let recipes = craftableRecipies.map(recipe => {
     return({
-      ingredients: recipe.map(item => { if(item < 0){return Math.abs(item)} }),
-      outputs: recipe.map(item => { if(item > 0){return item} })
+      id: recipe.id,
+      ingredients: recipe.recipe.map(item => { if(item < 0){return Math.abs(item)} }),
+      outputs: recipe.recipe.map(item => { if(item > 0){return item} })
     })
   })
 
@@ -36,6 +37,7 @@ export default function Crafting(props) {
       {recipes.map(recipe => {
         return(
           <CraftingCard 
+            id={recipe.id}
             ingredients={recipe.ingredients}
             outputs={recipe.outputs}
             items={props.items}
@@ -46,13 +48,32 @@ export default function Crafting(props) {
 }
 
 function CraftingCard(props) {
-  console.log(props.name, props.image)
+  
+  const CraftItem = () => {
+    console.log(props.id)
+  }
+
   return(
-    <div className={"grid | crafting-card"}>
+    <div className={"grid | crafting-card"} onClick={CraftItem()}>
+      {props.outputs.map((output, i) => {
+        if(output) {
+          return(
+            <div className={"flex | "}>
+              <img src={props.items[i].image} />
+              <h3>{props.items[i].name}</h3>
+              <p>{output}</p>
+            </div>
+          )
+        }
+      })}
       {props.ingredients.map((ingredient, i) => {
         if(ingredient) {
           return(
-            <h1>{props.items[i].name}</h1>
+            <div className={"flex | "}>
+              <img src={props.items[i].image} />
+              <h3>{props.items[i].name}</h3>
+              <p>{ingredient}</p>
+            </div>
           )
         }
       })}
