@@ -1,13 +1,123 @@
 .crafting-card {
-  height: 200px;
   width: 100%;
 
   border-radius: 10px;
 
   margin: 30px;
+  padding: 30px;
+
+  gap: 10px;
 
   background-color: var(--bg-secondary);
 
-  align-content: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: start;
+
+  flex-direction: column;
+
+  transition: 150ms
+}
+.crafting-card:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.output-container {
+  grid-template-columns: 60px min-content min-content 100%;
+
+  justify-items: center;
+  align-items: center;
+
+  gap: 15px;
+
+  pointer-events: none;
+}
+
+.output-image {
+  height: 50px;
+  width: 50px;
+
+  padding: 10px;
+
+  background-color: var(--bg-primary);
+  border-radius: 50%;
+  
+  pointer-events: none;
+}
+
+.output-title {
+  grid-column: 2;
+
+  font-size: 25px;
+
+  pointer-events: none;
+}
+
+.output-quantity {
+  grid-column: 3;
+
+  font-size: 20px;
+
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+
+  padding-inline: 7px;
+  padding-block: 5px;
+
+  pointer-events: none;
+}
+
+
+.border {
+  height: 2px;
+  width: 100%;
+
+  margin-block: 10px;
+
+  background-color: var(--fc-primary);
+}
+
+
+.ingredient-container {
+  grid-template-columns: 45px min-content min-content 100%;
+  justify-items: center;
+  align-items: center;
+
+  gap: 15px;
+
+  pointer-events: none;
+}
+
+.ingredient-image {
+  height: 35px;
+  width: 35px;
+
+  padding: 10px;
+
+  background-color: var(--bg-primary);
+  border-radius: 50%;
+  
+  pointer-events: none;
+}
+
+.ingredient-title {
+  grid-column: 2;
+
+  font-size: 20px;
+
+  pointer-events: none;
+}
+
+.ingredient-quantity {
+  grid-column: 3;
+
+  font-size: 15px;
+
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+
+  padding-inline: 7px;
+  padding-block: 5px;
+
+  pointer-events: none;
 }

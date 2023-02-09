@@ -59,25 +59,28 @@ function CraftingCard(props) {
   }
 
   return(
-    <div className={"grid | crafting-card"} onClick={CraftItem}>
+    <div className={"flex | crafting-card"} onClick={CraftItem}>
       {props.outputs.map((output, i) => {
         if(output) {
           return(
-            <div className={"flex | "}>
-              <img src={props.items[i].image} />
-              <h3>{props.items[i].name}</h3>
-              <p>{output}</p>
+            <div className={"grid | output-container"}>
+              <img src={props.items[i].image} className={"output-image"} />
+              <h3 className={"output-title"}>{props.items[i].name}</h3>
+              <p className={"output-quantity"}>{output}</p>
+              <div className={"spacer"}></div>
             </div>
           )
         }
       })}
+      <div className={"border"}></div>
       {props.ingredients.map((ingredient, i) => {
         if(ingredient) {
           return(
-            <div className={"flex | "}>
-              <img src={props.items[i].image} />
-              <h3>{props.items[i].name}</h3>
-              <p>{ingredient}</p>
+            <div className={"flex | ingredient-container"}>
+              <img src={props.items[i].image} className={"ingredient-image"} />
+              <h3 className={"ingredient-title"} >{props.items[i].name}</h3>
+              <p className={"ingredient-quantity"} >-{ingredient}</p>
+              <div className={"spacer"}></div>
             </div>
           )
         }
