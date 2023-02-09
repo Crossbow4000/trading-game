@@ -50,7 +50,7 @@ export default function Crafting(props) {
 function CraftingCard(props) {
   
   const CraftItem = () => {
-    console.log(props.id)
+    
   }
 
   return(
