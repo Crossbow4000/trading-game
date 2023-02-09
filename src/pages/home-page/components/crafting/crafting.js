@@ -3,12 +3,16 @@ import React from 'react'
 import '../../../../main.css';
 import './crafting.css'
 
+import { useCollectionData } from 'react-firebase-hooks/firestore'
+
 
 
 export default function Crafting(props) {
   let craftableRecipies = []
 
-  props.recipes?.forEach(recipe => {
+  const [recipes] = useCollectionData(props.recipesCollection)
+
+  recipes?.forEach(recipe => {
     let canUseRecipe = true
     console.log(recipe)
     recipe.recipe.forEach((itemInRecipe, i) => {

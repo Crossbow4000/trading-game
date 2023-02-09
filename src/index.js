@@ -19,7 +19,7 @@ function App() {
   
   return (
     <StrictMode>
-      {!user && !isSignedUp ? <LoginPage auth={auth}/> : <HomePage page={"inventory"} auth={auth} user={user} itemsCollection={itemsCollection} usersCollection={usersCollection} recipiesCollectoin={recipesCollection} setSignedUp={setSignedUp}/>}
+      {!user && !isSignedUp ? <LoginPage auth={auth}/> : <HomePage page={"inventory"} auth={auth} user={user} itemsCollection={itemsCollection} usersCollection={usersCollection} recipesCollection={recipesCollection} setSignedUp={setSignedUp}/>}
     </StrictMode>
   )
 }
