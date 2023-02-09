@@ -41,6 +41,7 @@ export default function Crafting(props) {
             ingredients={recipe.ingredients}
             outputs={recipe.outputs}
             items={props.items}
+            userDocument={props.userDocument}
           />
       )})}
     </div>
@@ -50,11 +51,15 @@ export default function Crafting(props) {
 function CraftingCard(props) {
   
   const CraftItem = () => {
-    
+    fetch(`https://trading-game-api.vercel.app/?action=CRAFT&uid=${props.userDocument.uid}&recipe=${props.id}&key=${props.userDocument.key}`)
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+    })
   }
 
   return(
-    <div className={"grid | crafting-card"} onClick={CraftItem()}>
+    <div className={"grid | crafting-card"} onClick={CraftItem}>
       {props.outputs.map((output, i) => {
         if(output) {
           return(
