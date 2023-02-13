@@ -38,6 +38,9 @@
   padding-block: 3px;
 }
 .item-card-rarity-uncommon {
+  background-color: rgb(146, 255, 131);
+}
+.item-card-rarity-common {
   background-color: rgb(127, 127, 127);
 }
 
