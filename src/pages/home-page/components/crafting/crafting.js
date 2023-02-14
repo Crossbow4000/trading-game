@@ -59,11 +59,11 @@ function CraftingCard(props) {
   }
 
   return(
-    <div className={"flex | crafting-card"} onClick={CraftItem}>
+    <div className={"flex | crafting-card"} onClick={CraftItem} key={props.id}>
       {props.outputs.map((output, i) => {
         if(output) {
           return(
-            <div className={"grid | output-container"}>
+            <div className={"grid | output-container"} key={props.items[i].name}>
               <img src={props.items[i].image} className={"output-image"} />
               <h3 className={"output-title"}>{props.items[i].name}</h3>
               <p className={"output-quantity"}>{output}</p>
@@ -76,7 +76,7 @@ function CraftingCard(props) {
       {props.ingredients.map((ingredient, i) => {
         if(ingredient) {
           return(
-            <div className={"flex | ingredient-container"}>
+            <div className={"flex | ingredient-container"} key={props.items[i].name}>
               <img src={props.items[i].image} className={"ingredient-image"} />
               <h3 className={"ingredient-title"} >{props.items[i].name}</h3>
               <p className={"ingredient-quantity"} >-{ingredient}</p>
