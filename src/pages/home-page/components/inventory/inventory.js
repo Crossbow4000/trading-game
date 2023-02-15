@@ -7,7 +7,9 @@ import './inventory.css'
 
 export default function Inventory(props) {
   return (
-    <div className={"flex"}>
+    <div>
+      <p>{props.userDocument?.wallet}</p>
+      <div className={"flex | inventory"}>
         {props.items?.map(item => {
           return (
             (props.userDocument.inventory[item.id] != 0)? 
@@ -20,8 +22,10 @@ export default function Inventory(props) {
               />):
               (<></>)
           )
-      })}
+        })}
+      </div>
     </div>
+    
   )
 }
 
