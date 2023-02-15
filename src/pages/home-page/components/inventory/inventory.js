@@ -7,7 +7,7 @@ import './inventory.css'
 
 export default function Inventory(props) {
   return (
-    <div className={"flex"} key={props.key}>
+    <div className={"flex"}>
         {props.items?.map(item => {
           return (
             (props.userDocument.inventory[item.id] != 0)? 
