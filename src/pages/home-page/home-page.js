@@ -34,6 +34,7 @@ export default function HomePage(props) {
 }
 
 
+
 function Body(props) {
   switch(props.page) {
     case 'inventory':
@@ -41,7 +42,7 @@ function Body(props) {
     case 'crafting':
       return <Crafting  auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument} recipes={props.recipes} />
     case 'market':
-      return <Market />
+      return <Market auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument} recipes={props.recipes}/>
     default:
       return <Inventory auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument}/>
   }

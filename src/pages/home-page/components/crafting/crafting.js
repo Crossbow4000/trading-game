@@ -67,6 +67,7 @@ function CraftingCard(props) {
               <img src={props.items[i].image} className={"output-image"} />
               <h3 className={"output-title"}>{props.items[i].name}</h3>
               <p className={"output-quantity"}>{output}</p>
+              <p className={"user-output-quantity"}>{props.userDocument.inventory[i]}</p>
               <div className={"spacer"}></div>
             </div>
           )
@@ -80,6 +81,7 @@ function CraftingCard(props) {
               <img src={props.items[i].image} className={"ingredient-image"} />
               <h3 className={"ingredient-title"} >{props.items[i].name}</h3>
               <p className={"ingredient-quantity"} >-{ingredient}</p>
+              <p className={"user-ingredient-quantity"}>{props.userDocument.inventory[i]}</p>
               <div className={"spacer"}></div>
             </div>
           )

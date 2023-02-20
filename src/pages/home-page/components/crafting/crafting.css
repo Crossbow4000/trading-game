@@ -23,7 +23,7 @@
 }
 
 .output-container {
-  grid-template-columns: 60px min-content min-content 100%;
+  grid-template-columns: 60px min-content min-content min-content 100%;
 
   justify-items: center;
   align-items: center;
@@ -55,6 +55,22 @@
 
 .output-quantity {
   grid-column: 3;
+
+  font-size: 20px;
+
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+
+  padding-inline: 7px;
+  padding-block: 5px;
+
+  pointer-events: none;
+}
+
+.user-output-quantity {
+  color: var(--fc-secondary);
+
+  grid-column: 4;
 
   font-size: 20px;
 
@@ -110,6 +126,22 @@
 
 .ingredient-quantity {
   grid-column: 3;
+
+  font-size: 15px;
+
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+
+  padding-inline: 7px;
+  padding-block: 5px;
+
+  pointer-events: none;
+}
+
+.user-ingredient-quantity {
+  color: var(--fc-secondary);
+
+  grid-column: 4;
 
   font-size: 15px;
 
