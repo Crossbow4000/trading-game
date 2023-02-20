@@ -9,6 +9,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import NavigationBar from './components/navigation-bar/navigation-bar.js'
 import Inventory from './components/inventory/inventory.js'
 import Crafting from './components/crafting/crafting.js'
+import Market from './components/market/market.js'
 
 import '../../main.css';
 import './home-page.css'
@@ -39,6 +40,8 @@ function Body(props) {
       return <Inventory auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument}/>
     case 'crafting':
       return <Crafting  auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument} recipes={props.recipes} />
+    case 'market':
+      return <Market />
     default:
       return <Inventory auth={props.auth} user={props.user} items={props.items} userDocument={props.userDocument}/>
   }
