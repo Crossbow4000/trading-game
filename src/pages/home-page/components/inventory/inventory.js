@@ -8,7 +8,7 @@ import './inventory.css'
 export default function Inventory(props) {
   return (
     <div>
-      <p>{props.userDocument?.wallet}</p>
+      <p className={"wallet"}>Cash : {props.userDocument?.wallet}</p>
       <div className={"flex | inventory"}>
         {props.items?.map(item => {
           return (
